@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 from sentry.auth.providers.oauth2 import (
     OAuth2Callback, OAuth2Provider, OAuth2Login
 )
@@ -13,12 +11,19 @@ from .views import FetchUser
 class GitLabOAuth2Provider(OAuth2Provider):
     name = 'Gitlab'
 
+    def __init__(self, **config):
+        super().__init__(**config)
+
+    def get_configure_view(self):
+        return GitLabConfigureView.as_view()
+
     def get_auth_pipeline(self):
         return [
             OAuth2Login(AUTHORIZE_URL, client_id=CLIENT_ID, scope=SCOPE),
             OAuth2Callback(
                 access_token_url=ACCESS_TOKEN_URL,
-                client_id=CLIENT_ID, client_secret=CLIENT_SECRET,
+                client_id=CLIENT_ID,
+                client_secret=CLIENT_SECRET,
             ),
             FetchUser()
         ]
