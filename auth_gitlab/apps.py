@@ -8,4 +8,4 @@ class Config(AppConfig):
 
         from .provider import GitLabOAuth2Provider
 
-        auth.register('gitlab', GitLabOAuth2Provider)
+        register('gitlab', GitLabOAuth2Provider)

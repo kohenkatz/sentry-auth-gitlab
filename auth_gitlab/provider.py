@@ -10,6 +10,8 @@ from .views import FetchUser
 
 class GitLabOAuth2Provider(OAuth2Provider):
     name = 'Gitlab'
+    client_id = CLIENT_ID
+    client_secret = CLIENT_SECRET
 
     def __init__(self, **config):
         super().__init__(**config)
