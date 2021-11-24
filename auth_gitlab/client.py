@@ -5,7 +5,6 @@ from sentry.utils import json
 
 from .constants import API_BASE_URL
 
-
 class GitLabApiError(Exception):
     def __init__(self, message='', status=None):
         super().__init__(message)
@@ -36,5 +35,5 @@ class GitLabClient(object):
             raise GitLabApiError(req.content, status=req.status_code)
         return json.loads(req.content)
 
-    def get_user(self, access_token):
+    def get_user(self):
         return self._request('user')
