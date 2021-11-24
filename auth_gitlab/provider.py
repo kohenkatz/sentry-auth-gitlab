@@ -1,15 +1,9 @@
-from sentry.auth.providers.oauth2 import (
-    OAuth2Callback, OAuth2Provider, OAuth2Login
-)
-
-from .constants import (
-    AUTHORIZE_URL, ACCESS_TOKEN_URL, CLIENT_ID, CLIENT_SECRET, SCOPE
-)
-from .views import FetchUser
-
+from sentry.auth.providers.oauth2 import OAuth2Callback, OAuth2Provider, OAuth2Login
+from .constants import AUTHORIZE_URL, ACCESS_TOKEN_URL, CLIENT_ID, CLIENT_SECRET, SCOPE
+from .views import ConfirmEmail, FetchUser, GitLabConfigureView, SelectOrganization
 
 class GitLabOAuth2Provider(OAuth2Provider):
-    name = 'Gitlab'
+    name = 'GitLab'
     client_id = CLIENT_ID
     client_secret = CLIENT_SECRET
 
