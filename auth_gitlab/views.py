@@ -11,3 +11,7 @@ class FetchUser(AuthView):
             user = client.get_user()
             helper.bind_state('user', user)
             return helper.next_step()
+
+class GitHubConfigureView(ConfigureView):
+    def dispatch(self, request, organization, auth_provider):
+        return self.render("sentry_auth_github/configure.html")
