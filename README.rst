@@ -43,7 +43,7 @@ It **should** work.
 
 GitLab Auth for Sentry
 ======================
-v0.1.4
+v0.1.5
 
 An SSO provider for Sentry which enables GitLab Login
 

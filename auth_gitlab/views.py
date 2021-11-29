@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-from sentry.auth.view import AuthView
+from sentry.auth.view import AuthView, ConfigureView
 
 from .client import GitLabClient
 
