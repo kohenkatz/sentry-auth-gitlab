@@ -36,5 +36,5 @@ class GitLabClient(object):
             raise GitLabApiError(req.content, status=req.status_code)
         return json.loads(req.content)
 
-    def get_user(self, access_token):
+    def get_user(self):
         return self._request('user')
