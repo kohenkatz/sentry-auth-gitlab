@@ -7,7 +7,7 @@ sentry-auth-gitlab
 """
 from __future__ import absolute_import
 from setuptools import setup, find_packages
-
+import os
 
 tests_require = [
     'pytest',
@@ -18,14 +18,23 @@ install_requires = [
     'sentry',
 ]
 
+# The directory containing this file
+
+HERE = os.path.dirname(os.path.realpath(__file__))
+
+# The text of the README file
+with open(HERE + "/README.rst", 'r') as f:
+    README = f.read()
+
 setup(
     name='sentry-auth-gitlab',
-    version='0.1.6',
-    author='Sky Lothar',
-    author_email='allothar@gmail.com@gmail.com',
-    url='https://github.com/skylothar',
+    version='0.3.1',
+    author='',
+    author_email='',
+    url='https://github.com/kohenkatz/sentry-auth-gitlab',
     description='Gitlab authentication provider for Sentry',
-    long_description=__doc__,
+    long_description=README,
+    long_description_content_type="text/markdown",
     license='',
     packages=find_packages(exclude=['tests']),
     zip_safe=False,
@@ -35,7 +44,7 @@ setup(
     include_package_data=True,
     entry_points={
         'sentry.apps': [
-            'auth_gitlab = auth_gitlab',
+            'auth_gitlab = auth_gitlab.apps.Config',
          ],
     },
     classifiers=[

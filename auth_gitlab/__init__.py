@@ -1,1 +1,2 @@
-default_app_config = "auth_gitlab.apps.Config"
+from __future__ import absolute_import
+
